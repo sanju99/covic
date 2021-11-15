@@ -64,7 +64,7 @@ def polar_area_plot(df, col_names, directory=None):
 
     ax.tick_params(axis='both', which='major', labelsize=10)
     
-    fName_legend = os.path.join(directory, "flowers_legend.png")
+    fName_legend = os.path.join(directory, "polar_plots_legend.png")
     plt.savefig(fName_legend)
     
     sns.set_style("dark")
@@ -93,7 +93,10 @@ def polar_area_plot(df, col_names, directory=None):
 
         ax[i].tick_params(axis='both', which='major', labelsize=10)
         
-    fName = os.path.join(directory, "CoVIC_flowers.png")
+    if os.path.isdir(directory) == False:
+        os.mkdir(directory)
+        
+    fName = os.path.join(directory, "polar_plots.png")
     plt.savefig(fName)
     
     
